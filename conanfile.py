@@ -3,7 +3,7 @@ from conans import ConanFile, CMake, tools
 
 class MpConan(ConanFile):
     name = "mp"
-    version = "bb7d616605dd23e4a453a834b0fc8c0a2a71b5aa"
+    version = "f7033500faa24432de38694361132de6770f50ad"
     license = "https://github.com/ampl/mp/blob/master/LICENSE.rst"
     author = "Harald Held <harald.held@gmail.com>"
     url = "https://github.com/hheld/mp-conan"
@@ -25,7 +25,6 @@ class MpConan(ConanFile):
         git.run("submodule update")
 
     def build(self):
-        pass
         cmake = self._configure_cmake()
         tools.replace_path_in_file("src/asl/CMakeLists.txt", "${CMAKE_CURRENT_BINARY_DIR}/arith.h",
                                    "${CMAKE_CURRENT_BINARY_DIR}/asl/include/arith.h")
